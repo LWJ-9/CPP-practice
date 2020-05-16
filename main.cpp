@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "Burrito.h"
 using namespace std;
 
 void printCrap(int x = 5){
@@ -39,13 +39,19 @@ int main()
 
     LisClass lisObject("some name");
     lisObject.coolSaying();
+
     string  st = "Li Weijie";
     lisObject.setName(st);
     cout << lisObject.getName() << endl;
     lisObject.coolSaying();
+
+
     LisClass lo2("Sally mcSalad");
     cout << lo2.getName() << endl;
     lo2.coolSaying();
+
+    Burrito bo;
+
     return 0;
 }
 
