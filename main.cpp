@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Burrito.h"
+#include <algorithm>
 using namespace std;
 
 
@@ -197,20 +198,21 @@ int main()
 
     //!!--Pointer--
     int fish = 5;
-    cout << &fish << endl;
+    cout << &fish << endl; //!0x6afea4
 
     int *fishPointer;
     fishPointer = &fish;
 
-    cout << fish << endl;
+    cout << fish << endl;                   //!5
     //!!not work ----- cout << *fish << endl;
-    cout << &fish << endl;
-    cout << fishPointer << endl;
-    cout << *fishPointer << endl;
+    cout << &fish << endl;                  //!0x6afea4
+    cout << fishPointer << endl;            //!0x6afea4
+    cout << *fishPointer << endl;           //!5
     //!!not work -----cout << **fishPointer << endl;
-    cout << &*fishPointer << endl;
-    cout << &fishPointer << endl;
-    cout << *&*&*&*&*&*&fishPointer << endl;
+    cout << &*&*&*&*&*fishPointer << endl;  //!0x6afea4
+    cout << &fishPointer << endl;           //!0x6afea0
+    cout << **&fishPointer << endl;         //!5
+    cout << *&*&*&*&*&*&fishPointer << endl;//!0x6afea4
 
     double ty[10];
     cout << sizeof(ty) << endl;
@@ -218,6 +220,35 @@ int main()
     int *tx;
     tx = &tt;
     cout << sizeof(tt) << endl;
+
+    cout << "----------------------------" << endl;
+    int aaa=2;
+    int bbb = 3 ;
+    cout << max(aaa, bbb) << endl;
+
+    cout << "--------------arrow member selection operator--------------" << endl;
+    //!! arrow member selection operator
+
+    Burrito boo;
+    Burrito *burritoPointer = &boo;
+    boo.printCrap();
+    burritoPointer -> printCrap();
+    cout << boo.printCrap() << endl;
+
+    cout << "--------------constant object with constant function--------------" << endl;
+
+    const Burrito constObj;
+
+    constObj.printCrap2();
+
+
+
+
+
+
+
+
+    cout << "This is the last line of main function." << endl;
     //!!return 0;
 }
 int volume(int x, int y, int z){

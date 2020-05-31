@@ -6,7 +6,9 @@ class Burrito
 {
     public:
         Burrito();
-
+        ~Burrito();
+        printCrap();
+        void printCrap2() const;
     protected:
 
     private:
